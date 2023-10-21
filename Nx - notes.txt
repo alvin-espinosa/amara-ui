@@ -1,0 +1,13 @@
+To create workspace
+1. run, npx create-nx-workspace <organization-name> --preset=angular
+2. select from options
+3. to add libs folder, go to nx.json and add
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  }
+
+To create components,module,routing
+1. go to project directory (../libs/project-name)
+2. run, npx nx g  @nrwl/angular:component <component-name> --styles=scss --export=true
+3. select 'Derived', to be created inside project folder
