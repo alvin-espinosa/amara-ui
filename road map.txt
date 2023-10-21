@@ -1,0 +1,18 @@
+Nx - structure,libs,apps
+Ng Materials
+Styles/Themes
+Jest/unit tests
+PlayWrite/e2e
+CI/CD
+okta/auth0/login
+api integration
+rxJs
+
+
+API
+EntityFramework
+Authentication/Authorization
+Gateway
+unit tests
+
+

@@ -1,0 +1,4 @@
+Angular Material
+1. npm install -g @angular/cli
+2. npm install @angular/material @angular/cdk @angular/animations --save  
+3. npx nx g @angular/material:ng-add
