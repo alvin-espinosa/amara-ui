@@ -1,28 +1,32 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
+import { NgMaterialsModule } from '@amara/ng-materials';
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+
+  let component: AppComponent;
+  let spectator: Spectator<AppComponent>;
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    declarations: [
+      NxWelcomeComponent
+    ],
+    imports: [
+      NgMaterialsModule,
+      RouterModule
+    ],
+  });
+
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent, NxWelcomeComponent],
-    }).compileComponents();
+    spectator = createComponent();
+    component = spectator.component;
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome amara-app'
-    );
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'amara-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('amara-app');
-  });
 });

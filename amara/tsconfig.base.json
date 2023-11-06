@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@amara/ng-materials": ["libs/ng-materials/src/index.ts"]
+      "@amara/ng-materials": ["libs/ng-materials/src/index.ts"],
+      "@amara/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

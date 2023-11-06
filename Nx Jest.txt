@@ -1,0 +1,7 @@
+npm install @ngneat/spectator --save-dev
+
+First, install @nx/jest, if not already installed using your preferred package manager.
+npm install --save-dev @nx/jest
+
+Once installed, run the configuration generator
+nx g @nx/jest:configuration --project=<project-name>
