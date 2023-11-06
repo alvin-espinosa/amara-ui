@@ -1,11 +1,12 @@
 import { Route } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { AboutComponent } from './about.component';
 
-export const appRoutes: Route[] = [
+export const aboutRoutes: Route[] = [
   {
     path: '',
-    loadChildren: () => import('./app-shell/app-shell.module').then(m => m.AppShellModule),
-    canActivate: [AuthGuard],
+    component: AboutComponent,
+    // canActivate: [AuthGuard],
   },
   {
     path: '**',

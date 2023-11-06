@@ -1,0 +1,18 @@
+<div style="display: flex;">
+  <div style="width: 15vw;">
+    <amara-nav-bar [navigationMenus]="navigationMenus"></amara-nav-bar>
+  </div>
+  <div style="width: 85vw;">
+    <amara-header></amara-header>
+    <div style="min-height: 91vh; background-color: antiquewhite;">
+      {{metadata | json }}
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- <amara-nx-welcome></amara-nx-welcome>  -->
+

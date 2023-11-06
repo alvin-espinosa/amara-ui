@@ -3,12 +3,11 @@ import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'amara-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'amara-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class AppComponent {
-  title = 'amara-app';
+export class HeaderComponent {
 
   constructor(
     @Inject(DOCUMENT) public document: Document,

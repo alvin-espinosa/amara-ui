@@ -9,7 +9,7 @@ To create workspace
 
 To create components,module,routing
 1. go to project directory (../libs/project-name)
-2. run, npx nx g  @nrwl/angular:component <component-name> --styles=scss --export=true
+2. run, npx nx g  @nrwl/angular:component <component-name> --style=scss --export=true
 3. select 'Derived', to be created inside project folder
 
 npx nx g @nrwl/angular:library <library-name>

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start:dev": "nx run amara-app:serve:development",
     "build": "npx nx run-many -t build --all ",
     "test": "npx nx run-many -t test --parallel=3 "
   },
@@ -16,6 +17,7 @@
     "@angular/platform-browser": "~16.2.0",
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
+    "@auth0/auth0-angular": "^2.2.1",
     "@nx/angular": "17.0.1",
     "ngx-socket-io": "^4.5.1",
     "rxjs": "~7.8.0",
