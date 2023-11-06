@@ -20,13 +20,13 @@ import { appRoutes } from './app.routes';
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     RouterModule,
     AuthModule.forRoot({
-      domain: 'dev-amara.us.auth0.com',
-      clientId: 'RIi0h8rNwrx9pn9zW1CNSyOYHDYsIqtJ',
+      domain: `${process.env['NX_AUTH0_DOMAIN']}`,//'dev-amara.us.auth0.com',
+      clientId: `${process.env['NX_AUTH0_CLIENT_ID']}`,//'RIi0h8rNwrx9pn9zW1CNSyOYHDYsIqtJ',
       authorizationParams: {
         redirect_uri: window.location.origin,
 
         // Request this audience at user authentication time
-        audience: 'https://dev-amara.us.auth0.com/api/v2/',
+        audience: `https://${process.env['NX_AUTH0_DOMAIN']}/api/v2/`,
 
         // Request this scope at user authentication time
         scope: 'read:current_user',
@@ -35,11 +35,11 @@ import { appRoutes } from './app.routes';
         allowedList: [
           {
             // Match any request that starts 'https://{yourDomain}/api/v2/' (note the asterisk)
-            uri: 'https://dev-amara.us.auth0.com/api/v2/*',
+            uri: `https://${process.env['NX_AUTH0_DOMAIN']}/api/v2/*`,//'https://dev-amara.us.auth0.com/api/v2/*',
             tokenOptions: {
               authorizationParams: {
                 // The attached token should target this audience
-                audience: 'https://dev-amara.us.auth0.com/api/v2/',
+                audience: `https://${process.env['NX_AUTH0_DOMAIN']}/api/v2/`,//'https://dev-amara.us.auth0.com/api/v2/',
 
                 // The attached token should have these scopes
                 scope: 'read:current_user'
