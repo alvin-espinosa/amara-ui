@@ -7,11 +7,9 @@
   "tags": [],
   "targets": {
     "build": {
-      // NOTE: change the executor to one that supports custom webpack config.
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        // NOTE: This file needs to be created.
         "customWebpackConfig": {
           "path": "webpack.config.js"
         },
@@ -81,7 +79,10 @@
           "browserTarget": "amara-app:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/amara-app/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

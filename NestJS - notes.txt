@@ -1,0 +1,19 @@
+
+npm install -g @nestjs/cli
+npm i --save class-validator class-transformer
+npm install @nestjs/typeorm --save
+npm install pg --save
+npm i --save @nestjs/config
+
+
+///////////
+nest new rcms-api (create new project)
+nest g module organizations (create new module)
+nest g controller organizations --no-spec (create new controller)
+nest g service  organizations --no-spec (create new service)
+
+//////////////////////////////////////
+/// instruction good to follow ///////
+//////////////////////////////////////
+https://nx.dev/nx-api/nest
+

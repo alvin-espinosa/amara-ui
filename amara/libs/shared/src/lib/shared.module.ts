@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [CommonModule, RouterModule],
   declarations: [HeaderComponent, FooterComponent, NavBarComponent],
+  providers: [],
   exports: [HeaderComponent, FooterComponent, NavBarComponent],
 })
 export class SharedModule {}

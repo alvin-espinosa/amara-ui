@@ -14,5 +14,11 @@ To create components,module,routing
 
 npx nx g @nrwl/angular:library <library-name>
 
+nx g service  services/test --project=shared (should in root folder)
+
 
 nx run amara-app:serve:development
+
+
+////--------------------------------------------------------------////
+https://nx.dev/recipes/angular/use-environment-variables-in-angular

@@ -1,11 +1,11 @@
-Nx - structure,libs,apps
+Nx - structure,libs,apps = done
+auth0/login = 
+api integration 
 Ng Materials
 Styles/Themes
 Jest/unit tests
 PlayWrite/e2e
 CI/CD
-okta/auth0/login
-api integration
 rxJs
 
 
