@@ -6,6 +6,9 @@ npm install pg --save
 npm i --save @nestjs/config
 
 
+npm install jwks-rsa express-jwt
+
+
 ///////////
 nest new rcms-api (create new project)
 nest g module organizations (create new module)

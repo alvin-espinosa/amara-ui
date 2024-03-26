@@ -8,7 +8,8 @@
     "start:prod": "nx run amara-app:serve:production",
     "build": "npx nx run-many -t build --all ",
     "test": "npx nx run-many -t test --parallel=3 ",
-    "start:api": "nx serve amara-api"
+    "start:api": "nx serve amara-api",
+    "start:debug:api": "nx serve amara-api --debug --watch"
   },
   "private": true,
   "dependencies": {
@@ -23,10 +24,15 @@
     "@angular/router": "~16.2.0",
     "@auth0/auth0-angular": "^2.2.1",
     "@nestjs/common": "^10.0.2",
+    "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
     "@nx/angular": "17.0.1",
     "axios": "^1.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "express-jwt": "^8.4.1",
+    "jwks-rsa": "^3.1.0",
     "ngx-socket-io": "^4.5.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
