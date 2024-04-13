@@ -26,7 +26,7 @@ stages:
           cd amara/
           npm install -g @angular/cli
           npm install
-          
+          npm run build
         displayName: 'npm install and build'
         workingDirectory: '$(Build.SourcesDirectory)'
       - task: CmdLine@2
@@ -34,7 +34,7 @@ stages:
         inputs:
           script: |
             cd amara/
-            ng test --browsers=ChromeHeadless --code-coverage --watch=false
+            npm run test --browsers=ChromeHeadless --code-coverage --watch=false
       - task: ArchiveFiles@2
         displayName: 'Archive files'
         inputs:
