@@ -38,7 +38,7 @@ stages:
       - task: ArchiveFiles@2
         displayName: 'Archive files'
         inputs:
-          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist/angular-with-azure/'
+          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist/amara/'
           includeRootFolder: false
           archiveType: zip
           archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
@@ -73,25 +73,25 @@ stages:
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'NODE|16-lts'
 
-- stage: Acceptance
-  dependsOn: [ Development ]
-  displayName: 'Deploy to Acceptance'
-  jobs:
-    - job:  DeployToAcceptance
-      displayName: 'DeployAcceptance'
-      steps:
-      - script: echo Deploying to Acceptance
-- stage: Production
-  dependsOn: [ Acceptance ]
-  displayName: 'Deploy to Production'
-  jobs:
-    - deployment: DeployProduction
-      pool:
-        vmImage: 'ubuntu-latest'
-      environment: Production
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - script: echo Deploying to Production
+# - stage: Acceptance
+#   dependsOn: [ Development ]
+#   displayName: 'Deploy to Acceptance'
+#   jobs:
+#     - job:  DeployToAcceptance
+#       displayName: 'DeployAcceptance'
+#       steps:
+#       - script: echo Deploying to Acceptance
+# - stage: Production
+#   dependsOn: [ Acceptance ]
+#   displayName: 'Deploy to Production'
+#   jobs:
+#     - deployment: DeployProduction
+#       pool:
+#         vmImage: 'ubuntu-latest'
+#       environment: Production
+#       strategy:
+#         runOnce:
+#           deploy:
+#             steps:
+#             - script: echo Deploying to Production
 
