@@ -23,7 +23,7 @@ stages:
         displayName: 'Install Node.js 16.x'
 
       - script: |
-          cd AngularWithAzure/
+          cd amara/
           npm install -g @angular/cli
           npm install
           ng build --prod
@@ -33,7 +33,7 @@ stages:
         displayName: "Run unit tests"
         inputs:
           script: |
-            cd AngularWithAzure/
+            cd amara/
             ng test --browsers=ChromeHeadless --code-coverage --watch=false
       - task: ArchiveFiles@2
         displayName: 'Archive files'
