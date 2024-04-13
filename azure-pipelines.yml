@@ -38,7 +38,7 @@ stages:
       - task: ArchiveFiles@2
         displayName: 'Archive files'
         inputs:
-          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist/apps/amara-app'
+          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/amara/dist/apps/amara-app'
           includeRootFolder: false
           archiveType: zip
           archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
