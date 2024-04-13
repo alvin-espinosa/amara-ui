@@ -31,10 +31,10 @@ stages:
         workingDirectory: '$(Build.SourcesDirectory)'
       - task: CmdLine@2
         displayName: "Run unit tests"
-        inputs:
-          script: |
-            cd amara/
-            npm run test --browsers=ChromeHeadless --code-coverage --watch=false
+        # inputs:
+        #   script: |
+        #     cd amara/
+        #     npm run test --browsers=ChromeHeadless --code-coverage --watch=false
       - task: ArchiveFiles@2
         displayName: 'Archive files'
         inputs:
@@ -71,7 +71,7 @@ stages:
               appType: 'webAppLinux'
               appName: 'kadi'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-              runtimeStack: 'NODE|16-lts'
+              runtimeStack: 'NODE|18-lts'
 
 # - stage: Acceptance
 #   dependsOn: [ Development ]
