@@ -11,4 +11,9 @@ export class AboutService {
   getAbout() {
     return this.httpClient.get('/api');
   }
+
+  getTest() {
+    // return this.httpClient.get('https://localhost:7100/WeatherForecast');
+    return this.httpClient.get('https://amara-app.azurewebsites.net/WeatherForecast');
+  }
 }

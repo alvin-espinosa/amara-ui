@@ -9,13 +9,28 @@ import { AboutService } from './services/about.service';
 })
 export class AboutComponent {
 
-  public data = '';
-
+  public data = {};
+  hasApiError = false;
+  responseJson = '';
   constructor(private aboutService: AboutService) { }
 
+
   getData() {
-    this.aboutService.getAbout().subscribe((res: any) => {
-      this.data = res.message;
+    // this.aboutService.getAbout().subscribe((res: any) => {
+    //   this.data = res.message;
+    // });
+    this.aboutService.getTest().subscribe({
+      next: (res) => {        
+        this.data = res;
+        this.hasApiError = false;
+        this.responseJson = JSON.stringify(res, null, 2).trim();
+      },
+      error: (exception) => {
+        this.hasApiError = true;
+        this.data = {
+          error: exception
+        }
+      }
     });
   }
 }
