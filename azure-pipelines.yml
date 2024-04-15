@@ -23,10 +23,12 @@ stages:
         displayName: 'Install Node.js 18.x'
 
       - script: |
+          cd amara/
           npm install -g @angular/cli
           npm install
           npm run build
         displayName: 'npm install and build'
+        workingDirectory: '$(Build.SourcesDirectory)'
       - task: CmdLine@2
         displayName: "Run unit tests"
         # inputs:
