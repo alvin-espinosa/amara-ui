@@ -68,9 +68,9 @@ stages:
             displayName: 'Deploy App Service'
             inputs:
               azureSubscription: 'Azure subscription 1 (d918e139-72d5-4c18-80c4-06e75a8c5b47)'
-              appType: 'webAppLinux'
-              # appType: 'webApp'
-              appName: 'kadi'
+              # appType: 'webAppLinux'
+              appType: 'webApp'
+              appName: 'dev-kvr'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'NODE|18-lts'
 
