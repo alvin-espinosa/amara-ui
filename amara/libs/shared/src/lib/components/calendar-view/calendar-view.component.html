@@ -1,0 +1,58 @@
+<div style="display: inline-block; width: 100%;">
+    <div style="float: left;">
+        <form [formGroup]="formGroup">
+            <mat-form-field>
+                <mat-label>Month</mat-label>
+                <mat-select  formControlName="monthSelected">
+                <mat-option *ngFor="let month of monthOptions" [value]="month.id">
+                    {{month.name}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Year</mat-label>
+                <mat-select formControlName="yearSelected">
+                    <mat-option *ngFor="let year of yearOptions" [value]="year">
+                        {{year}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+    <div style="float: right;">
+        <div style="display: flex; column-gap: 15px;">
+            <button mat-raised-button style="gap: 10px;"
+             (click)="onPrevious()">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
+            
+            <button mat-raised-button
+             (click)="onNext()">
+                <mat-icon>navigate_next</mat-icon>
+            </button>
+        </div>
+    </div>
+    
+</div>
+
+<mat-grid-list cols="7" rowHeight="5:1">
+    <mat-grid-tile class="day" *ngFor="let weekDay of weekDayOptions; index as i;">{{weekDay.name}}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="7" rowHeight="2:1">    
+    <mat-grid-tile *ngFor="let cell of cells; index as i">
+        <div *ngIf="(firstDay.getDate() + (i - firstDay.getDay())) > 0 && totalDays > (i - firstDay.getDay())" 
+            [ngStyle]="{'background-color': getBackgroundColor(firstDay.getDate() + (i - firstDay.getDay())), 
+                        'color': isPastDay(firstDay.getDate() + (i - firstDay.getDay())) ? 'lightgray': 'white',
+                        'cursor': '' }"
+            style="height: 100%; width: 100%; color: white; font-weight: bolder;"
+            (click)="onReservation(firstDay.getDate() + (i - firstDay.getDay()))"
+            [ngClass]="getCursor(firstDay.getDate() + (i - firstDay.getDay()))">
+            <ng-container *ngIf="isToday(firstDay.getDate() + (i - firstDay.getDay()))">
+                <span class="today">{{ firstDay.getDate() + (i - firstDay.getDay())}}</span>
+            </ng-container>
+            <ng-container *ngIf="!isToday(firstDay.getDate() + (i - firstDay.getDay()))">
+                {{ firstDay.getDate() + (i - firstDay.getDay())}}
+            </ng-container>      
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
