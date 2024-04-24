@@ -27,6 +27,7 @@ stages:
           npm install -g @angular/cli
           npm install
           npm run build
+          npm run build:kvr-app
         displayName: 'npm install and build'
         workingDirectory: '$(Build.SourcesDirectory)'
       - task: CmdLine@2
