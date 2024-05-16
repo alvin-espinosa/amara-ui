@@ -1,0 +1,33 @@
+
+mat-grid-tile {
+    background: rgb(222, 223, 221);//"C7CBC6"// lightblue;
+}
+
+.day {
+    background-color: rgb(229, 231, 228);
+    color: black;
+}
+
+.today{
+    background: rgb(222, 223, 221);
+    border-radius:50%;
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 6px;
+    color: black;
+}
+
+.invalid-date {
+    cursor: not-allowed;
+}
+
+.valid-date {
+    cursor: pointer;
+}
+
+.valid-date:hover {
+    background-color: green !important;
+}

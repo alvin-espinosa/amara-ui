@@ -7,6 +7,10 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('./app-shell/app-shell.module').then(m => m.AppShellModule),
     canActivate: [AuthGuard],
   },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./features/main/main.module').then(m => m.MainModule),
+  // },
   {
     path: '**',
     pathMatch: 'full',

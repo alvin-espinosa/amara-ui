@@ -1,33 +1,30 @@
 import { NgModule } from '@angular/core';
-import {
-  HttpClientModule,
-  provideHttpClient,
-  withInterceptors,
-} from '@angular/common/http';
-// import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
-import {
-  AuthHttpInterceptor,
-  AuthModule,
-  authHttpInterceptorFn,
-} from '@auth0/auth0-angular';
-
-import { NgMaterialsModule } from '@amara/ng-materials';
-
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { SharedModule } from '@amara/shared';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { AuthHttpInterceptor, AuthModule, authHttpInterceptorFn } from '@auth0/auth0-angular';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReservationFormComponent } from './features/reservation-form/reservation-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { AuthenticationComponent } from './features/authentication/authentication.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent, ReservationFormComponent, AuthenticationComponent],
   imports: [
-    // BrowserModule,
-    HttpClientModule,
-    NgMaterialsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule, 
+    MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule,     
+    SharedModule,
+    ReactiveFormsModule,    
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    RouterModule,
     AuthModule.forRoot({
       domain: `${process.env['NX_AUTH0_DOMAIN']}`, //'dev-amara.us.auth0.com',
       clientId: `${process.env['NX_AUTH0_CLIENT_ID']}`, //'RIi0h8rNwrx9pn9zW1CNSyOYHDYsIqtJ',
@@ -68,6 +65,14 @@ import { appRoutes } from './app.routes';
   providers: [
     provideHttpClient(withInterceptors([authHttpInterceptorFn])),
     AuthHttpInterceptor,
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        appearance: 'outline',
+        floatLabel: 'always',
+      },
+    }
+    
   ],
   bootstrap: [AppComponent],
 })
