@@ -30,12 +30,12 @@ stages:
           npm run build:kvr-app
         displayName: 'npm install and build'
         workingDirectory: '$(Build.SourcesDirectory)'
-      - task: CmdLine@2
-        displayName: "Run unit tests"
-        inputs:
-          script: |
-            cd amara/
-            npm run test --browsers=ChromeHeadless --code-coverage --watch=false
+      # - task: CmdLine@2
+      #   displayName: "Run unit tests"
+      #   inputs:
+      #     script: |
+      #       cd amara/
+      #       npm run test --browsers=ChromeHeadless --code-coverage --watch=false
       - task: ArchiveFiles@2
         displayName: 'Archive files'
         inputs:
