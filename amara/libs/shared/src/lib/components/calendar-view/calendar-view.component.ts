@@ -1,19 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-// import monthNames from '../../data/month-name.json';
-// import weekDays from '../../data/day-name';
-import { commonModel } from '../../models/common.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { tap } from 'rxjs';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+
+import monthNames from '../../data/month-names.json';
+import { commonModel } from '../../models/common.model';
+
 
 @Component({
   selector: 'amara-calendar-view',
   templateUrl: './calendar-view.component.html',
   styleUrls: ['./calendar-view.component.scss']
-})
+})  
 export class CalendarViewComponent implements OnInit {
-
-  @Output() openRequestForm = new EventEmitter<Date>();
+  
+  @Output() openForm = new EventEmitter();
 
   public reservations: Date[] = [ 
     new Date(2024,3,25),
@@ -69,7 +70,7 @@ export class CalendarViewComponent implements OnInit {
         name: "Saturday"
     }
     ];
-    // this.monthOptions = monthNames;
+    this.monthOptions = monthNames;
     this.yearOptions = [
       this.now.getUTCFullYear(), 
       this.now.getUTCFullYear() + 1
@@ -200,7 +201,7 @@ export class CalendarViewComponent implements OnInit {
       this.formGroup.controls.monthSelected.value ?? this.now.getUTCMonth(), 
       day);
 
-    this.openRequestForm.emit(selectedDate);
+    this.openForm.emit(selectedDate);
   }
 
   private showCalendarDays(month: number, year: number): void {

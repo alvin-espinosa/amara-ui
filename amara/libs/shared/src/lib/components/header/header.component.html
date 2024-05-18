@@ -1,5 +1,7 @@
 <div class="header">
-  <button class="item" (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">Log out</button>
+  <button class="item" (click)="redirectToHome()">Log in</button>
+  <button class="item" (click)="logOut()">Log out</button>
+  <!-- <button class="item" (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })">Log out</button> -->
   <div class="item" *ngIf="auth.user$ | async as user">
     {{user.name}}
   </div>

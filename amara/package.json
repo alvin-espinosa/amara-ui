@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start:kvr-dev": "nx run kvr-app:serve:development",
     "start:dev": "nx run amara-app:serve:development",
     "start:qa": "nx run amara-app:serve:qa",
     "start:prod": "nx run amara-app:serve:production",
     "start:kvr-dev": "nx run kvr-app:serve:development",
     "build": "npx nx run-many -t build --all ",
+    "build:kvr-app": "nx run kvr-app:build:production",
     "test": "npx nx run-many -t test --parallel=3 ",
     "start:api": "nx serve amara-api",
     "start:debug:api": "nx serve amara-api --debug --watch"

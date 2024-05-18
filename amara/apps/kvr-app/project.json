@@ -2,14 +2,17 @@
   "name": "kvr-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "kvr",
+  "prefix": "amara",
   "sourceRoot": "apps/kvr-app/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "customWebpackConfig": {
+          "path": "webpack.config.js"
+        },
         "outputPath": "dist/apps/kvr-app",
         "index": "apps/kvr-app/src/index.html",
         "main": "apps/kvr-app/src/main.ts",
@@ -47,7 +50,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "kvr-app:build:production"

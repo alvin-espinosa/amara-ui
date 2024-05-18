@@ -17,13 +17,14 @@ import { NgMaterialsModule } from '@amara/ng-materials';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    // BrowserModule,
+    BrowserModule,
     HttpClientModule,
     NgMaterialsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
