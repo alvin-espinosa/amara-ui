@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:kvr-dev": "nx run kvr-app:serve:development",
     "start:dev": "nx run amara-app:serve:development",
     "start:qa": "nx run amara-app:serve:qa",
     "start:prod": "nx run amara-app:serve:production",
